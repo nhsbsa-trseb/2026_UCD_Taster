@@ -1,0 +1,96 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /app/views/layout.html -->
+{% extends 'layout.html' %}
+<!--
+  In /app/views/layout.html you can:
+    - change the header and footer
+    - add custom CSS and JavaScript
+-->
+
+<!--
+  Use this to set the page name which will appear at the
+  start of the <title> tag, followed by the service name.
+  This is often not needed on the homepage, where only the
+  service name is needed. You can also reuse this variable
+  within the <h1>, where they are the same.
+-->
+{% set pageName = "Select Delivery Location" %}
+
+<!-- For adding a breadcrumb or back link -->
+<!-- Code examples can be found at https://service-manual.nhs.uk/design-system/components/breadcrumbs and https://service-manual.nhs.uk/design-system/components/back-link -->
+{% block beforeContent %}
+  {{ breadcrumb({
+    items: [
+      {
+        href: "/",
+        text: "Home"
+      },
+      {
+        href: "/Index2",
+        text: "Your order"
+      }
+    ]
+  }) }}
+
+  <div class="nhsuk-u-margin-top-3">
+    {{ backLink({
+      href: "/Index2",
+      text: "Back"
+    }) }}
+  </div>
+{% endblock %}
+
+<!-- For adding page content -->
+<!-- Page layout code can be found at https://service-manual.nhs.uk/design-system/styles/layout -->
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-full">
+      <h1 class="nhsuk-heading-xl">Select Delivery Location</h1>
+      <p class="nhsuk-body-l">Select the floor and desk for your food delivery</p><br>
+
+      <form method="post">
+        <fieldset class="nhsuk-fieldset">
+          <legend class="nhsuk-fieldset__legend nhsuk-u-visually-hidden">Floor plan options</legend>
+
+          <div class="nhsuk-radios nhsuk-radios--cards">
+            <div class="nhsuk-radios__item nhsuk-card nhsuk-card--clickable nhsuk-radio-card">
+              <input class="nhsuk-radios__input" id="floor-plan-1" name="floor-plan" type="radio" value="proposed" checked>
+              <label class="nhsuk-label nhsuk-radios__label" for="floor-plan-1">
+                <span class="nhsuk-radio-card__image"><img src="/assets/images/floor-plan-1.jpg" alt="First floor plan"></span>
+                <span class="nhsuk-radio-card__title">First floor layout</span>
+                <span class="nhsuk-radio-card__hint">Choose this floor for your food delivery</span>
+              </label>
+            </div>
+
+            <div class="nhsuk-radios__item nhsuk-card nhsuk-card--clickable nhsuk-radio-card">
+              <input class="nhsuk-radios__input" id="floor-plan-2" name="floor-plan" type="radio" value="riser-6">
+              <label class="nhsuk-label nhsuk-radios__label" for="floor-plan-2">
+                <span class="nhsuk-radio-card__image"><img src="/assets/images/floor-plan-2.jpg" alt="Second floor plan"></span>
+                <span class="nhsuk-radio-card__title">Second floor layout</span>
+                <span class="nhsuk-radio-card__hint">Choose this floor for your food delivery</span>
+              </label>
+            </div>
+
+            <div class="nhsuk-radios__item nhsuk-card nhsuk-card--clickable nhsuk-radio-card">
+              <input class="nhsuk-radios__input" id="floor-plan-3" name="floor-plan" type="radio" value="main-door-out-of-service">
+              <label class="nhsuk-label nhsuk-radios__label" for="floor-plan-3">
+                <span class="nhsuk-radio-card__image"><img src="/assets/images/floor-plan-3.jpg" alt="Third floor plan"></span>
+                <span class="nhsuk-radio-card__title">Third floor layout</span>
+                <span class="nhsuk-radio-card__hint">Choose this floor for your food delivery</span>
+              </label>
+            </div>
+          </div>
+        </fieldset>
+        <br>
+        <br>
+<br>
+        <br>
+        <a class="nhsuk-button" data-module="nhsuk-button" href="/Index4">Continue</a>
+        <br>
+      </form>
+    </div>
+  </div>
+{% endblock %}

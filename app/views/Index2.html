@@ -1,0 +1,122 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /app/views/layout.html -->
+{% extends 'layout.html' %}
+<!--
+  In /app/views/layout.html you can:
+    - change the header and footer
+    - add custom CSS and JavaScript
+-->
+
+<!--
+  Use this to set the page name which will appear at the
+  start of the <title> tag, followed by the service name.
+  This is often not needed on the homepage, where only the
+  service name is needed. You can also reuse this variable
+  within the <h1>, where they are the same.
+-->
+{% set pageName = "Order food" %}
+
+<!-- For adding a breadcrumb or back link -->
+<!-- Code examples can be found at https://service-manual.nhs.uk/design-system/components/breadcrumbs and https://service-manual.nhs.uk/design-system/components/back-link -->
+{% block beforeContent %}
+  {{ breadcrumb({
+    items: [
+      {
+        href: "/",
+        text: "Home"
+      }
+    ]
+  }) }}
+
+  <div class="nhsuk-u-margin-top-3">
+    {{ backLink({
+      href: "/",
+      text: "Back"
+    }) }}
+  </div>
+{% endblock %}
+
+<!-- For adding page content -->
+<!-- Page layout code can be found at https://service-manual.nhs.uk/design-system/styles/layout -->
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-full">
+
+ <h1 class="nhsuk-heading-xl">Your order</h1>
+      <p class="nhsuk-body-l">Select your food and drink order using the kiosk</p><br>
+
+      <div class="kiosk-wireframe" aria-label="Food ordering kiosk mock-up">
+        <div class="kiosk-wireframe__header">
+          <div class="kiosk-wireframe__brand">NHS</div>
+          <div class="kiosk-wireframe__title">IMAGE</div>
+        </div>
+
+        <div class="kiosk-wireframe__content">
+          <div class="kiosk-wireframe__main">
+            <div class="kiosk-wireframe__steps">
+              <div class="kiosk-wireframe__step active">Select Meal</div>
+              <div class="kiosk-wireframe__step">Select Drink</div>
+              <div class="kiosk-wireframe__step">Verify Order</div>
+              <div class="kiosk-wireframe__step">Make Payment</div>
+            </div>
+
+            <div class="kiosk-wireframe__tabs">
+              <button class="kiosk-wireframe__tab active" type="button" role="tab" aria-selected="true">Burgers</button>
+              <button class="kiosk-wireframe__tab" type="button" role="tab" aria-selected="false">Bowls</button>
+              <button class="kiosk-wireframe__tab" type="button" role="tab" aria-selected="false">Salads</button>
+              <button class="kiosk-wireframe__tab" type="button" role="tab" aria-selected="false">Breakfast</button>
+              <button class="kiosk-wireframe__tab" type="button" role="tab" aria-selected="false">Drinks</button>
+            </div>
+
+            <div class="kiosk-wireframe__cards">
+              <button class="kiosk-wireframe__card" type="button">Burger 1</button>
+              <button class="kiosk-wireframe__card active" type="button">Burger 2</button>
+              <button class="kiosk-wireframe__card" type="button">Burger 3</button>
+              <button class="kiosk-wireframe__card" type="button">Burger 4</button>
+              <button class="kiosk-wireframe__card" type="button">Burger 5</button>
+            </div>
+
+            <div class="kiosk-wireframe__prices">
+              <div>£3.00</div>
+              <div>£3.99</div>
+              <div>£4.99</div>
+              <div>£2.99</div>
+              <div>£5.50</div>
+            </div>
+
+            <div class="kiosk-wireframe__actions">
+              <button class="kiosk-wireframe__cancel" type="button">Cancel</button>
+              <div class="kiosk-wireframe__selection-actions">
+                <button class="kiosk-wireframe__next-selection" type="button">Next Selection</button>
+                <button class="kiosk-wireframe__add-item" type="button">Add Item</button>
+                <button class="kiosk-wireframe__make-payment" type="button">Make Payment</button>
+              </div>
+            </div>
+          </div>
+
+          <aside class="kiosk-wireframe__aside">
+            <h3>Your Selections</h3>
+            <div class="kiosk-wireframe__selection-name">Burger 2</div>
+            <div class="kiosk-wireframe__selection-price">£3.99</div>
+            <div class="kiosk-wireframe__added-items" aria-live="polite"></div>
+            <div class="kiosk-wireframe__summary-total">
+              <span>Total Amount</span>
+              <strong>£3.99</strong>
+            </div>
+            <p class="kiosk-wireframe__payment-success" role="status" hidden>Payment successful</p>
+          </aside>
+        </div>
+      </div>
+
+        <br>
+<br>
+        <br>
+        <a class="nhsuk-button" data-module="nhsuk-button" href="/Index3">Continue</a>
+        <br>
+      </form>
+    </div>
+  </div>
+{% endblock %}

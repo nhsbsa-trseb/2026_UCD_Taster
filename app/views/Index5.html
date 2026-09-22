@@ -1,0 +1,138 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /app/views/layout.html -->
+{% extends 'layout.html' %}
+<!--
+  In /app/views/layout.html you can:
+    - change the header and footer
+    - add custom CSS and JavaScript
+-->
+
+<!--
+  Use this to set the page name which will appear at the
+  start of the <title> tag, followed by the service name.
+  This is often not needed on the homepage, where only the
+  service name is needed. You can also reuse this variable
+  within the <h1>, where they are the same.
+-->
+{% set pageName = "Order status" %}
+
+<!-- For adding a breadcrumb or back link -->
+<!-- Code examples can be found at https://service-manual.nhs.uk/design-system/components/breadcrumbs and https://service-manual.nhs.uk/design-system/components/back-link -->
+{% block beforeContent %}
+  {{ breadcrumb({
+    items: [
+      {
+        href: "/",
+        text: "Home"
+      },
+      {
+        href: "/Index2",
+        text: "Your order"
+      },
+      {
+        href: "/Index3",
+        text: "Select Delivery Location"
+      },
+      {
+        href: "/Index4",
+        text: "Choose a delivery method"
+      }
+    ]
+  }) }}
+
+  <div class="nhsuk-u-margin-top-3">
+    {{ backLink({
+      href: "/Index4",
+      text: "Back"
+    }) }}
+  </div>
+{% endblock %}
+
+<!-- For adding page content -->
+<!-- Page layout code can be found at https://service-manual.nhs.uk/design-system/styles/layout -->
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-full">
+      <h1 class="nhsuk-heading-xl">Order status</h1>
+
+      <div class="nhsuk-tabs">
+        <h2 class="nhsuk-tabs__title">Order information</h2>
+        <ul class="nhsuk-tabs__list" role="tablist">
+          <li class="nhsuk-tabs__list-item" role="presentation">
+            <a class="nhsuk-tabs__tab" id="menu-tab" href="#menu-panel" role="tab" aria-controls="menu-panel" aria-selected="false" tabindex="-1">Your Order</a>
+          </li>
+          <li class="nhsuk-tabs__list-item" role="presentation">
+            <a class="nhsuk-tabs__tab" id="contact-tab" href="#contact-panel" role="tab" aria-controls="contact-panel" aria-selected="false" tabindex="-1">Preferred Contact</a>
+          </li>
+          <li class="nhsuk-tabs__list-item" role="presentation">
+            <a class="nhsuk-tabs__tab" id="time-tab" href="#time-panel" role="tab" aria-controls="time-panel" aria-selected="true">Time Of Order</a>
+          </li>
+        </ul>
+
+        <section class="nhsuk-tabs__panel nhsuk-tabs__panel--rating" id="menu-panel" role="tabpanel" aria-labelledby="menu-tab" hidden>
+          <h2 class="nhsuk-heading-l">Your Menu</h2>
+          <p>1x Veggie Burger (Number 3) and 1x Diet Coke</p>
+          <div class="nhsuk-form-group nhsuk-rating-select">
+            <label class="nhsuk-label" for="rating-menu">Rate here</label>
+            <select class="nhsuk-select" id="rating-menu" name="rating-menu">
+              <option value="1">1 star</option>
+              <option value="2">2 stars</option>
+              <option value="3">3 stars</option>
+              <option value="4">4 stars</option>
+              <option value="5" selected>5 stars</option>
+            </select>
+          </div>
+        </section>
+
+        <section class="nhsuk-tabs__panel nhsuk-tabs__panel--rating" id="contact-panel" role="tabpanel" aria-labelledby="contact-tab" hidden>
+          <h2 class="nhsuk-heading-l">Preferred Contact</h2>
+          <p>Email: joebloggs@nhsbsa.nhs.uk   |   Phone: 077775553333</p>
+          <div class="nhsuk-form-group nhsuk-rating-select">
+            <label class="nhsuk-label" for="rating-contact">Rate here</label>
+            <select class="nhsuk-select" id="rating-contact" name="rating-contact">
+              <option value="1">1 star</option>
+              <option value="2">2 stars</option>
+              <option value="3">3 stars</option>
+              <option value="4">4 stars</option>
+              <option value="5" selected>5 stars</option>
+            </select>
+          </div>
+        </section>
+
+        <section class="nhsuk-tabs__panel nhsuk-tabs__panel--rating" id="time-panel" role="tabpanel" aria-labelledby="time-tab">
+          <div class="nhsuk-order-timeline">
+            <div class="nhsuk-order-timeline__item">
+              <h2 class="nhsuk-heading-m">Food ordered</h2>
+              <p>15 October 2026: 12:18pm</p>
+            </div>
+            <div class="nhsuk-order-timeline__item">
+              <h2 class="nhsuk-heading-m">Food prepared</h2>
+              <p>15 October 2026: 12:39pm</p>
+              <p>Which Canteen - Stella (Cafe 1)</p>
+            </div>
+            <div class="nhsuk-order-timeline__item">
+              <h2 class="nhsuk-heading-m">Food served</h2>
+              <p>15 October 2026: 12:58pm</p>
+              <p>To <strong>Desk 35</strong> 3rd Floor at Stella House</p>
+            </div>
+          </div>
+          <div class="nhsuk-form-group nhsuk-rating-select">
+            <label class="nhsuk-label" for="rating">Rate here</label>
+            <select class="nhsuk-select" id="rating" name="rating">
+              <option value="1">1 star</option>
+              <option value="2">2 stars</option>
+              <option value="3">3 stars</option>
+              <option value="4">4 stars</option>
+              <option value="5" selected>5 stars</option>
+            </select>
+          </div>
+        </section>
+      </div>
+
+      <a class="nhsuk-button" data-module="nhsuk-button" href="/">Finish your journey</a>
+    </div>
+  </div>
+{% endblock %}

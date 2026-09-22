@@ -1,0 +1,103 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /app/views/layout.html -->
+{% extends 'layout.html' %}
+<!--
+  In /app/views/layout.html you can:
+    - change the header and footer
+    - add custom CSS and JavaScript
+-->
+
+<!--
+  Use this to set the page name which will appear at the
+  start of the <title> tag, followed by the service name.
+  This is often not needed on the homepage, where only the
+  service name is needed. You can also reuse this variable
+  within the <h1>, where they are the same.
+-->
+{% set pageName = "Choose a delivery method" %}
+
+<!-- For adding a breadcrumb or back link -->
+<!-- Code examples can be found at https://service-manual.nhs.uk/design-system/components/breadcrumbs and https://service-manual.nhs.uk/design-system/components/back-link -->
+{% block beforeContent %}
+  {{ breadcrumb({
+    items: [
+      {
+        href: "/",
+        text: "Home"
+      },
+      {
+        href: "/Index2",
+        text: "Your order"
+      },
+      {
+        href: "/Index3",
+        text: "Select Delivery Location"
+      }
+    ]
+  }) }}
+
+  <div class="nhsuk-u-margin-top-3">
+    {{ backLink({
+      href: "/Index3",
+      text: "Back"
+    }) }}
+  </div>
+{% endblock %}
+
+<!-- For adding page content -->
+<!-- Page layout code can be found at https://service-manual.nhs.uk/design-system/styles/layout -->
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-full">
+      <h1 class="nhsuk-heading-xl">Choose a delivery method</h1>
+      <p class="nhsuk-body-l">Select how you want your food delivered</p><br>
+
+      <form method="post">
+        <fieldset class="nhsuk-fieldset">
+          <legend class="nhsuk-fieldset__legend nhsuk-u-visually-hidden">Delivery method options</legend>
+
+          <div class="nhsuk-radios nhsuk-radios--cards">
+            <div class="nhsuk-radios__item nhsuk-card nhsuk-card--clickable nhsuk-radio-card">
+              <input class="nhsuk-radios__input" id="delivery-method-1" name="delivery-method" type="radio" value="paper-bag" checked>
+              <label class="nhsuk-label nhsuk-radios__label" for="delivery-method-1">
+                <span class="nhsuk-radio-card__image"><img src="/assets/images/paperbag.png" alt="Delivery by paper bag"></span>
+                <span class="nhsuk-radio-card__title">Delivery by paper bag</span>
+                <span class="nhsuk-radio-card__hint">Choose this option for delivery by paper bag</span>
+              </label>
+            </div>
+
+            <div class="nhsuk-radios__item nhsuk-card nhsuk-card--clickable nhsuk-radio-card">
+              <input class="nhsuk-radios__input" id="delivery-method-2" name="delivery-method" type="radio" value="tray">
+              <label class="nhsuk-label nhsuk-radios__label" for="delivery-method-2">
+                <span class="nhsuk-radio-card__image"><img src="/assets/images/tray.png" alt="Delivery by tray"></span>
+                <span class="nhsuk-radio-card__title">Delivery by tray</span>
+                <span class="nhsuk-radio-card__hint">Choose this option for delivery by tray</span>
+              </label>
+            </div>
+
+            <div class="nhsuk-radios__item nhsuk-card nhsuk-card--clickable nhsuk-radio-card nhsuk-radio-card--plastic-bag">
+              <input class="nhsuk-radios__input nhsuk-radios__input--plastic-bag" id="delivery-method-3" name="delivery-method" type="radio" value="plastic-bag">
+              <label class="nhsuk-label nhsuk-radios__label" for="delivery-method-3">
+                <span class="nhsuk-radio-card__image nhsuk-radio-card__image--plastic-bag">
+                  <img src="/assets/images/plasticbag.png" alt="Delivery by plastic bag">
+                  <span class="nhsuk-radio-card__watermark">Extra 25 pence for plastic bag use</span>
+                </span>
+                <span class="nhsuk-radio-card__title">Delivery by plastic bag</span>
+                <span class="nhsuk-radio-card__hint">Choose this option for delivery by plastic bag</span>
+              </label>
+            </div>
+          </div>
+        </fieldset>
+        <br>
+        <br>
+<br>
+        <br>
+        <a class="nhsuk-button" data-module="nhsuk-button" href="/Index5">Continue</a>
+        <br>
+      </form>
+    </div>
+  </div>
+{% endblock %}

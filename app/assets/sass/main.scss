@@ -1,0 +1,689 @@
+$nhsuk-assets-path: "/nhsuk-frontend/assets/";
+
+// Import NHS.UK frontend library
+@import "nhsuk-frontend/dist/nhsuk";
+
+// Add your custom CSS/Sass styles below.
+
+.nhsuk-radios--cards {
+	display: grid;
+	gap: nhsuk-spacing(5);
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.nhsuk-radio-card {
+	margin-bottom: 0;
+	padding: 0;
+	position: relative;
+}
+
+.nhsuk-radio-card:has(.nhsuk-radios__input:checked) {
+	border-color: $color_nhsuk-blue;
+	box-shadow: 0 0 0 4px $color_nhsuk-blue;
+}
+
+.nhsuk-radio-card .nhsuk-radios__input {
+	left: nhsuk-spacing(3);
+	position: absolute;
+	top: nhsuk-spacing(3);
+	z-index: 1;
+}
+
+.nhsuk-radio-card .nhsuk-radios__label {
+	display: block;
+	margin: 0;
+	padding: 0;
+}
+
+.nhsuk-radio-card__image {
+	display: block;
+	aspect-ratio: 1 / 1;
+	margin: -1px -1px 0;
+	overflow: hidden;
+	width: calc(100% + 2px);
+}
+
+.nhsuk-radio-card__image img {
+	box-sizing: border-box;
+	display: block;
+	height: 100%;
+	object-fit: contain;
+	object-position: center center;
+	padding-left: 1.5rem;
+	width: 100%;
+}
+
+.nhsuk-radio-card__image--plastic-bag {
+	position: relative;
+}
+
+.nhsuk-radios__input--plastic-bag {
+	position: absolute !important;
+	z-index: 9999 !important;
+}
+
+.nhsuk-radio-card--plastic-bag {
+	isolation: isolate;
+}
+
+.nhsuk-radio-card--plastic-bag .nhsuk-radios__input--plastic-bag {
+	transform: scale(1.25);
+}
+
+.nhsuk-radio-card__watermark {
+	background: rgba(255, 255, 255, 0.82);
+	color: $color_nhsuk-black;
+	display: block;
+	font-size: 1rem;
+	font-weight: $nhsuk-font-bold;
+	left: -12%;
+	padding: 0.5rem 0;
+	position: absolute;
+	text-align: center;
+	top: 42%;
+	transform: rotate(-15deg);
+	width: 124%;
+}
+
+.nhsuk-order-image {
+	display: block;
+	height: auto;
+	margin-bottom: nhsuk-spacing(5);
+	max-width: 100%;
+	width: 100%;
+}
+
+.nhsuk-problem-image {
+	display: block;
+	height: auto;
+	max-width: 100%;
+	width: 85%;
+}
+
+.nhsuk-problem-image-button {
+	background: none;
+	border: 0;
+	color: $color_nhsuk-blue;
+	cursor: pointer;
+	display: block;
+	margin-bottom: nhsuk-spacing(5);
+	padding: 0;
+	text-align: left;
+	width: 100%;
+}
+
+.nhsuk-problem-image-button__text {
+	display: block;
+	font-size: 1.1875rem;
+	font-weight: $nhsuk-font-bold;
+	margin-top: nhsuk-spacing(2);
+	text-decoration: underline;
+}
+
+.nhsuk-problem-image-dialog {
+	align-items: center;
+	background: rgba(0, 0, 0, 0.85);
+	display: flex;
+	height: 100vh;
+	justify-content: center;
+	left: 0;
+	padding: nhsuk-spacing(4);
+	position: fixed;
+	top: 0;
+	width: 100vw;
+	z-index: 1000;
+}
+
+.nhsuk-problem-image-dialog__content {
+	max-height: 100%;
+	max-width: 100%;
+	position: relative;
+}
+
+.nhsuk-problem-image-dialog img {
+	cursor: pointer;
+	display: block;
+	max-height: calc(100vh - 5rem);
+	max-width: 100%;
+}
+
+.nhsuk-problem-image-dialog__close {
+	background: $color_nhsuk-white;
+	border: 0;
+	color: $color_nhsuk-black;
+	cursor: pointer;
+	font-weight: $nhsuk-font-bold;
+	margin-bottom: nhsuk-spacing(2);
+	padding: nhsuk-spacing(2) nhsuk-spacing(3);
+}
+
+.nhsuk-radio-card__title,
+.nhsuk-radio-card__hint {
+	display: block;
+	padding-left: nhsuk-spacing(3);
+	padding-right: nhsuk-spacing(3);
+}
+
+.nhsuk-radio-card__title {
+	font-weight: $nhsuk-font-bold;
+	padding-top: nhsuk-spacing(3);
+}
+
+.nhsuk-radio-card__hint {
+	color: $nhsuk-secondary-text-color;
+	padding-bottom: nhsuk-spacing(4);
+	padding-top: nhsuk-spacing(1);
+}
+
+@include nhsuk-media-query($from: tablet) {
+	.nhsuk-radio-card:hover {
+		border-color: $color_nhsuk-blue;
+	}
+}
+
+@include nhsuk-media-query($until: tablet) {
+	.nhsuk-radios--cards {
+		grid-template-columns: 1fr;
+	}
+}
+
+.nhsuk-order-timeline {
+	border-left: 0.5rem solid $color_nhsuk-black;
+	margin: nhsuk-spacing(5) 0 nhsuk-spacing(6) nhsuk-spacing(4);
+	padding-left: nhsuk-spacing(4);
+}
+
+.nhsuk-order-timeline__item {
+	position: relative;
+}
+
+.nhsuk-order-timeline__item::before {
+	background: $color_nhsuk-black;
+	content: "";
+	height: 0.5rem;
+	left: -1.5rem;
+	position: absolute;
+	top: 0.75rem;
+	width: 1.5rem;
+}
+
+.nhsuk-order-timeline__item:not(:last-child) {
+	margin-bottom: nhsuk-spacing(6);
+}
+
+.nhsuk-tabs__panel--rating {
+	display: flex;
+	flex-direction: column;
+}
+
+.nhsuk-rating-select {
+	align-self: flex-end;
+	margin-top: nhsuk-spacing(4);
+	max-width: 15rem;
+	width: 100%;
+}
+
+.kiosk-wireframe {
+	background: #b8b8b8;
+	border: 1px solid #9a9a9a;
+	box-sizing: border-box;
+	max-width: 1100px;
+	padding: 0;
+	width: 100%;
+}
+
+.kiosk-wireframe__header {
+	align-items: center;
+	background: #555555;
+	display: flex;
+	justify-content: space-between;
+	padding: 1.25rem 2rem 1rem;
+}
+
+.kiosk-wireframe__brand {
+	background: #555555;
+	border-radius: 0.25rem;
+	color: #ffffff;
+	font-size: 5rem;
+	font-weight: 900;
+	letter-spacing: -0.08em;
+	line-height: 0.9;
+	padding: 0.4rem 1rem 0.2rem;
+}
+
+.kiosk-wireframe__title {
+	color: #f2f2f2;
+	font-size: 4rem;
+	font-weight: 400;
+	letter-spacing: -0.04em;
+	line-height: 1;
+	padding-right: 1rem;
+	text-transform: uppercase;
+}
+
+.kiosk-wireframe__content {
+	display: flex;
+	gap: 0;
+}
+
+.kiosk-wireframe__main {
+	background: #e2e2e2;
+	flex: 1;
+	padding: 0.5rem 0 0;
+}
+
+.kiosk-wireframe__steps {
+	display: grid;
+	grid-template-columns: repeat(4, minmax(0, 1fr));
+	margin: 0 0 1rem;
+	padding: 0 1rem;
+	position: relative;
+}
+
+.kiosk-wireframe__steps::before {
+	border-top: 0.25rem solid #555555;
+	content: "";
+	display: block;
+	left: 1rem;
+	position: absolute;
+	right: 1rem;
+	top: 2.1rem;
+}
+
+.kiosk-wireframe__step {
+	color: #1c1c1c;
+	font-size: 1.4rem;
+	font-weight: 700;
+	padding-top: 0.5rem;
+	position: relative;
+	text-align: center;
+}
+
+.kiosk-wireframe__step::before {
+	background: #555555;
+	border: 0.2rem solid #555555;
+	border-radius: 50%;
+	content: "";
+	display: block;
+	height: 1.2rem;
+	margin: 0 auto 0.75rem;
+	position: relative;
+	width: 1.2rem;
+	z-index: 1;
+}
+
+.kiosk-wireframe__step.active {
+	color: #0b0c0c;
+}
+
+.kiosk-wireframe__step.active::before {
+	background: #e2e2e2;
+}
+
+.kiosk-wireframe__tabs {
+	background: #d1d1d1;
+	display: grid;
+	grid-template-columns: repeat(5, minmax(0, 1fr));
+	margin: 0 1rem;
+	padding: 0;
+}
+
+.kiosk-wireframe__tab {
+	border: 1px solid #b0b0b0;
+	background: #d1d1d1;
+	color: #1c1c1c;
+	cursor: pointer;
+	font-size: 1.2rem;
+	font-weight: 700;
+	padding: 0.8rem 0.5rem;
+	text-align: center;
+}
+
+.kiosk-wireframe__tab.active {
+	background: #d9d9d9;
+}
+
+.kiosk-wireframe__cards {
+	display: grid;
+	gap: 0.75rem;
+	grid-template-columns: repeat(5, minmax(0, 1fr));
+	margin: 1.5rem 1rem 0;
+}
+
+.kiosk-wireframe__card {
+	align-items: center;
+	background: #f3f3f3;
+	border: 2px solid #7a7a7a;
+	color: #1c1c1c;
+	cursor: pointer;
+	display: flex;
+	font-size: 1.25rem;
+	font-weight: 700;
+	height: 7rem;
+	justify-content: center;
+	padding: 0.5rem;
+	text-align: center;
+	width: 100%;
+}
+
+.kiosk-wireframe__card.active {
+	background: #c5c5c5;
+	border-color: #333;
+	box-shadow: inset 0 0 0 2px rgba(0, 0, 0, 0.05);
+}
+
+.kiosk-wireframe__prices {
+	display: grid;
+	grid-template-columns: repeat(5, minmax(0, 1fr));
+	margin: 1rem 1rem 0;
+	padding-bottom: 1rem;
+	text-align: center;
+}
+
+.kiosk-wireframe__prices div {
+	color: #1c1c1c;
+	font-size: 1.8rem;
+	font-weight: 700;
+}
+
+.kiosk-wireframe__actions {
+	display: flex;
+	gap: 0.75rem;
+	justify-content: space-between;
+	padding: 1.5rem 1rem 1rem;
+}
+
+.kiosk-wireframe__actions button {
+	background: #d9d9d9;
+	border: 1px solid #646464;
+	border-radius: 0.4rem;
+	color: #1c1c1c;
+	cursor: pointer;
+	font-size: 1.1rem;
+	font-weight: 700;
+	padding: 0.9rem 1rem;
+}
+
+.kiosk-wireframe__actions button:first-child {
+	margin-right: auto;
+}
+
+.kiosk-wireframe__selection-actions {
+	display: flex;
+	gap: 0.75rem;
+}
+
+.kiosk-wireframe__actions button.primary {
+	background: #efefef;
+	font-weight: 800;
+}
+
+.kiosk-wireframe__aside {
+	background: #707070;
+	color: #fff;
+	padding: 1rem 1.25rem 0;
+	width: 28%;
+}
+
+.kiosk-wireframe__aside h3 {
+	color: #fff;
+	font-size: 1.5rem;
+	font-weight: 800;
+	margin: 0 0 1.2rem;
+}
+
+.kiosk-wireframe__selection-name {
+	color: #fff;
+	font-size: 1.25rem;
+	font-weight: 800;
+	margin-bottom: 0.75rem;
+}
+
+.kiosk-wireframe__selection-price {
+	color: #fff;
+	font-size: 1.5rem;
+	font-weight: 800;
+	margin-bottom: 1.5rem;
+}
+
+.kiosk-wireframe__added-items {
+	border-top: 1px solid rgba(255, 255, 255, 0.35);
+	margin-bottom: 1.5rem;
+}
+
+.kiosk-wireframe__added-item {
+	border-bottom: 1px solid rgba(255, 255, 255, 0.35);
+	color: #fff;
+	display: flex;
+	font-size: 1rem;
+	justify-content: space-between;
+	padding: 0.5rem 0;
+}
+
+.kiosk-wireframe__summary-total {
+	border-top: 1px solid rgba(255, 255, 255, 0.6);
+	color: #fff;
+	padding-top: 1rem;
+}
+
+.kiosk-wireframe__summary-total span {
+	display: block;
+	font-size: 1.2rem;
+	margin-bottom: 0.5rem;
+}
+
+.kiosk-wireframe__summary-total strong {
+	font-size: 1.5rem;
+}
+
+.kiosk-wireframe__payment-success {
+	background: #d8f3dc;
+	color: #1b4332;
+	font-size: 1rem;
+	font-weight: 700;
+	margin: 1rem 0;
+	padding: 0.75rem;
+}
+
+@media (max-width: 600px) {
+	.kiosk-wireframe__header {
+		padding: 0.75rem 0.75rem 0.6rem;
+	}
+
+	.kiosk-wireframe__brand {
+		font-size: 2.8rem;
+	}
+
+	.kiosk-wireframe__title {
+		font-size: 2.2rem;
+	}
+
+	.kiosk-wireframe__step {
+		font-size: 0.7rem;
+	}
+
+	.kiosk-wireframe__tab {
+		font-size: 0.7rem;
+		padding: 0.6rem 0.25rem;
+	}
+
+	.kiosk-wireframe__content {
+		flex-direction: column;
+	}
+
+	.kiosk-wireframe__cards {
+		grid-template-columns: 1fr;
+	}
+
+	.kiosk-wireframe__card {
+		font-size: 1.1rem;
+		height: 6.5rem;
+	}
+
+	.kiosk-wireframe__prices div {
+		font-size: 1rem;
+	}
+
+	.kiosk-wireframe__actions button {
+		font-size: 0.7rem;
+		padding: 0.6rem 0.5rem;
+	}
+
+	.kiosk-wireframe__actions {
+		align-items: stretch;
+		flex-direction: column;
+		gap: 0.6rem;
+	}
+
+	.kiosk-wireframe__actions button:first-child {
+		margin-right: 0;
+	}
+
+	.kiosk-wireframe__selection-actions {
+		flex-direction: column;
+		gap: 0.6rem;
+	}
+
+	.kiosk-wireframe__actions button {
+		font-size: 1rem;
+		padding: 0.8rem 0.75rem;
+		width: 100%;
+	}
+
+	.kiosk-wireframe__aside {
+		padding: 0.75rem 0.6rem 0;
+		width: auto;
+	}
+
+	.kiosk-wireframe__aside h3 {
+		font-size: 1rem;
+	}
+
+	.kiosk-wireframe__selection-name {
+		font-size: 0.9rem;
+	}
+
+	.kiosk-wireframe__selection-price,
+	.kiosk-wireframe__summary-total strong {
+		font-size: 1rem;
+	}
+
+	.kiosk-wireframe__added-item,
+	.kiosk-wireframe__summary-total span {
+		font-size: 0.75rem;
+	}
+}
+
+@media (max-width: 650px) {
+	.kiosk-wireframe__tab {
+		font-size: 0.95rem;
+		padding: 0.75rem 0.35rem;
+	}
+}
+
+.app-header {
+	background: $color_nhsuk-blue;
+	border-bottom: 0;
+	margin: 0;
+}
+
+.app-header__container {
+	align-items: center;
+	display: flex;
+	justify-content: space-between;
+	min-height: 5rem;
+	position: relative;
+}
+
+.app-header__service {
+	margin: 0;
+}
+
+.app-header__service .nhsuk-header__link {
+	color: $color_nhsuk-white;
+	font-weight: $nhsuk-font-bold;
+	text-decoration: none;
+}
+
+.app-header__logo-wrap {
+	align-items: center;
+	display: flex;
+	height: 3rem;
+	justify-content: center;
+	margin-right: 0.5rem;
+	padding: 0 0.25rem;
+}
+
+.app-header__logo {
+	color: $color_nhsuk-white;
+	display: block;
+	height: 2.3rem;
+	width: auto;
+}
+
+.app-header__account-panel {
+	align-items: center;
+	background: rgba(0, 51, 102, 0.45);
+	border: 0;
+	border-radius: 0.45rem;
+	display: flex;
+	gap: 0.65rem;
+	height: 3rem;
+	margin-left: auto;
+	padding: 0 0.9rem;
+}
+
+.app-header__avatar-icon {
+	color: $color_nhsuk-white;
+	display: block;
+	height: 1.15rem;
+	width: 1.15rem;
+	flex-shrink: 0;
+}
+
+.app-header__name {
+	color: $color_nhsuk-white;
+	font-size: 0.9rem;
+	font-weight: 400;
+	line-height: 1;
+	white-space: nowrap;
+}
+
+.app-header__logout,
+.app-header__logout:link,
+.app-header__logout:visited,
+.app-header__logout:hover,
+.app-header__logout:focus,
+.app-header__logout:active {
+	border-left: 1px solid rgba(255, 255, 255, 0.7);
+	color: $color_nhsuk-white;
+	font-size: 0.9rem;
+	font-weight: $nhsuk-font-bold;
+	padding-left: 0.8rem;
+	text-decoration: none;
+}
+
+.app-header__logout:hover,
+.app-header__logout:focus {
+	text-decoration: underline;
+}
+
+.nhsuk-breadcrumb {
+	background: $color_nhsuk-white;
+}
+
+.nhsuk-breadcrumb__list {
+	background: $color_nhsuk-white;
+}
+
+@include nhsuk-media-query($until: tablet) {
+	.app-header__account-panel {
+		height: 3rem;
+		padding: 0 0.75rem;
+	}
+
+	.app-header__name,
+	.app-header__logout {
+		font-size: 0.85rem;
+	}
+}
